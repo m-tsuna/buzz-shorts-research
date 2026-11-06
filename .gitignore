@@ -1,0 +1,24 @@
+# 自分のドライブに入るための鍵と許可証（絶対に公開しない）
+credentials.json
+service_account.json
+token.json
+.env
+
+# 提出用のファイル
+提出記事.md
+提出記事.html
+
+# Python が自動で作るフォルダ
+__pycache__/
+
+# Mac が自動で作るファイル
+.DS_Store
+
+# 進捗と記事の材料（GitHub に載せない）
+作業記録.md
+
+# 前の課題からの引き継ぎメモ（作業用）
+引き継ぎ.md
+
+# pytest が自動で作るフォルダ
+.pytest_cache/

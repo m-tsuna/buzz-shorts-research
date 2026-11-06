@@ -1,0 +1,55 @@
+# GitHub Actions に「毎朝 8:15（日本時間）に main.py を動かす」と伝える設定ファイル。
+# GitHub のコンピューターで動くので、自分の Mac の電源が切れていても届く。
+name: 毎朝のバズショート
+
+on:
+  schedule:
+    # 時刻は世界の標準時（UTC）で書く。UTC の 23:15 ＝ 日本時間の 8:15
+    # （GitHub が混んでいると、数分〜30分ほど遅れて始まることがある）
+    - cron: "15 23 * * *"
+  # GitHub の画面（Actions タブの「Run workflow」）や `gh workflow run daily.yml` で、今すぐ動かせるようにする
+  workflow_dispatch:
+
+# 記録（data/history.csv）をコミットして保存するので、リポジトリに書き込む許可を出す
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. このリポジトリのファイル（main.py・これまでの記録など）を取ってくる
+      - uses: actions/checkout@v4
+
+      # 2. Python を用意して、ライブラリを入れる
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      # 3. 単体テスト（通信しない）。壊れていたら送らずに止める
+      - run: pytest -q
+
+      # 4. main.py を動かす。鍵は Secrets（GitHub の金庫）から環境変数として渡す
+      - run: python main.py
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+
+      # 5. 記録が増えていればコミットする（シートに書けずに 4 が失敗した日も、記録は残す）
+      - name: 記録を保存する
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/history.csv
+          if git diff --cached --quiet; then
+            echo "記録に変わりはありません"
+          else
+            git commit -m "記録を追加（$(TZ=Asia/Tokyo date +%Y-%m-%d)）"
+            git push
+          fi
