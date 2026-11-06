@@ -50,5 +50,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 進捗（2026-11-06 時点。詳しくは `作業記録.md` の「▶ 次にやること」）
 - 要件定義 ✅（版1.3）→ 実装 ✅ → テスト ✅ → 公開 ✅（https://github.com/m-tsuna/buzz-shorts-research 。T13 は 11/7 の朝）→ **記事**
-- 次：T13（11/7 の朝9時までに届くか、`gh run list` で時刻を見る）→ 関数を一つ読む → 記事（`templates/tool-article.md`）
+- 関数を一つ読む ✅。記事は `提出記事.md` に下書き済み
+- 次：T13（11/7 の朝9時までに届いたか、`gh run list` で時刻を見る）→ 時間を測る（測り方を最初から説明し直す）→ 記事の仕上げ（読み直し・難易度・HTML）
 - 子ども・キャリアの検索の言葉を 11/6 に変えた（広い言葉だとドラマ・コントばかり）。数日使って様子を見る
