@@ -49,6 +49,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `作業記録.md`・`提出記事.md`・`service_account.json` は GitHub に載せない
 
 ## 進捗（2026-11-06 時点。詳しくは `作業記録.md` の「▶ 次にやること」）
-- 要件定義 ✅（版1.3）→ 実装 ✅ → テスト ✅（T1〜T11・T14〜T17。T12・T13 は公開のあと）→ **公開（本人の OK 待ち）** → 記事
-- 次：公開（README・daily.yml を作り、Secrets に .env の5つと GOOGLE_SERVICE_ACCOUNT_JSON を入れる）→ T12（gh workflow run）→ T13（次の朝）→ 関数を一つ読む → 記事
-- 気になること：子ども・キャリアの候補が3日続けて外れる（ドラマ・コントばかり）。数日使ってから言葉や上限を見直す
+- 要件定義 ✅（版1.3）→ 実装 ✅ → テスト ✅ → 公開 ✅（https://github.com/m-tsuna/buzz-shorts-research 。T13 は 11/7 の朝）→ **記事**
+- 次：T13（11/7 の朝9時までに届くか、`gh run list` で時刻を見る）→ 関数を一つ読む → 記事（`templates/tool-article.md`）
+- 子ども・キャリアの検索の言葉を 11/6 に変えた（広い言葉だとドラマ・コントばかり）。数日使って様子を見る
