@@ -37,6 +37,15 @@ YouTube で探す（全体3回＋ジャンルの言葉4回）
 
 AI が混んでいる（HTTP 503）ときは、少し待ってやり直し、次のモデルも試します。それでも駄目なら、AI の分析なしで動画だけを送ります（届かないよりよいため）。
 
+## 使う技術
+
+- Python 3（requests・python-dotenv・gspread）、単体テストは pytest
+- YouTube Data API（伸びているショートを探す）
+- Gemini API（動画の構成を分析）
+- LINE Messaging API（毎朝届ける）
+- Google Sheets API（サービスアカウントで記録）
+- GitHub Actions（毎朝の自動実行）
+
 ## 事前準備
 
 - Python 3.12 くらい（手元では Anaconda の Python 3.14 で確かめました）
