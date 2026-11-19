@@ -63,7 +63,7 @@ GEMINI_MODELS = os.environ.get("GEMINI_MODELS", "gemini-flash-lite-latest,gemini
 GEMINI_RETRY_WAITS = [15, 30]   # 混雑（503）のとき、何秒待ってやり直すか
 # ジャンル分けが全部のモデルで駄目だったとき、少し長くあけて最初から試し直す秒数。
 # 混雑は数分で収まることが多い。AI なしで推し量ると興味の外の動画が届いた（11-05 の T6）。
-# 8:15 に動かし、Actions の遅れ（約25分）を入れても9時に間に合う長さにしている
+# 長く待ちすぎて朝の配信が遅れないよう、合わせて5分にしている
 GEMINI_LATE_WAITS = [120, 180]
 GEMINI_TIMEOUT = 120            # 1回の返事を待つ秒数
 
