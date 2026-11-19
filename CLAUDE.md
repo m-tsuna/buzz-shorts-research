@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Gemini API（API キー、`AQ` で始まる形）：YouTube の URL を `file_data.file_uri` で渡すと動画の中身を見る
 - LINE Messaging API（プッシュ送信）。LINE自動通知と同じボットで、無料枠は月200通
 - Google スプレッドシート（gspread＋サービスアカウント。5-1-1② の鍵を使い回し、スコープは spreadsheets だけ）
-- GitHub Actions（`.github/workflows/daily.yml`）：日本時間 8:15（UTC 23:15）に動かし、`data/history.csv` をコミットする
+- GitHub Actions（`.github/workflows/daily.yml`）：日本時間 6:47（UTC 21:47）に動かし（11/20 に 8:15 から変更。11/13 から3〜6時間遅れたため）、`data/history.csv` をコミットする
 
 ## 動かし方（コマンド）
 - `python main.py --dry-run`：LINE に送らず、記録も書かずに、送る予定の文を画面に出す。試すときは基本これを使う
@@ -53,3 +53,4 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 関数を一つ読む ✅。記事は `提出記事.md` に下書き済み
 - T13 ✅（11/7 8:44 に届いた）。時間 ✅（1回 24分→6分）。記事 ✅（11/7 HTML をクリップボードへ、難易度★3）。残り：本人が記事サイトに貼る
 - 子ども・キャリアの検索の言葉を 11/6 に変えた（広い言葉だとドラマ・コントばかり）。数日使って様子を見る
+- 11/20：11/13 から Actions が3〜6時間遅れて午後に届く日が出た → 予約を 8:15 から 6:47 に早めた（PR）。数日見て、まだ遅ければ「夜中に始めて 8:15 まで待つ」か「外のサービスから動かす」を検討
